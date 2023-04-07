@@ -1,39 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<title>AR.js Image Target Detection</title>
-	<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils.js"></script>
-	<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-	<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-</head>
-<body>
-	<div id="arjs-scene">
-		<img id="target" src="plant_target.jpg">
-		<a-nft
-			type="nft"
-			url="your-image-target"
-			marker-controls
-			hit-testing-enabled="true"
-			hit-testing-render-debug
-		>
-			<a-entity
-				scale="0.1 0.1 0.1"
-				rotation="0 180 0"
-				position="0 0 0"
-				gltf-model="potted_plant_01_4k.gltf"
-			>
-			</a-entity>
-		</a-nft>
-	</div>
-	<script>
-		// Set up AR.js
-		AFRAME.registerComponent('foo', {
-			init: function () {
-				console.log('Hello, World!');
-			}
-		});
-		</script>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title>My AR.js app</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/holistic"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+  </head>
+  <body>
+    <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
+      <a-nft
+        type="nft"
+        url="path/to/your-marker.nft"
+        smooth="true"
+        smoothCount="10"
+        smoothTolerance=".01"
+        smoothThreshold="5"
+      >
+        <a-entity
+          position="0 0 0"
+          scale="0.1 0.1 0.1"
+          rotation="0 180 0"
+          gltf-model="path/to/your-3d-model.gltf"
+        ></a-entity>
+      </a-nft>
+    </a-scene>
+  </body>
 </html>
